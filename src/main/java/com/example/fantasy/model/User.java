@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+//Create an entity named User, with this attribute: Id is the primary key and auto-increment; nome 
 @Entity
 @Table(name = "user")
 public class User {
@@ -22,7 +23,6 @@ public class User {
 	private Long id;
 	
 	@Nonnull
-	@Column
 	private String nome;
 	
 	@OneToMany(mappedBy = "user")
