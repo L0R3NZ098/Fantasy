@@ -15,17 +15,17 @@ import com.example.fantasy.service.PersonaggioService;
 public class PersonaggioServiceImpl implements PersonaggioService {
 
 	@Autowired
-	private PersonaggioRepository personaggioRepository;
+	private PersonaggioRepository repo;
 
 	@Override
 	public List<Personaggio> getAllPersonaggio() {
-		List<Personaggio> getAll = personaggioRepository.findAll();
+		List<Personaggio> getAll = repo.findAll();
 		return getAll;
 	}
 
 	@Override
 	public Personaggio getPersonaggioById(Long id) {
-		Optional<Personaggio> getById = personaggioRepository.findById(id);
+		Optional<Personaggio> getById = repo.findById(id);
 		if (getById.isPresent()) {
 			return getById.get();
 		} else {
@@ -36,7 +36,7 @@ public class PersonaggioServiceImpl implements PersonaggioService {
 
 	@Override
 	public void createPersonaggio(Personaggio personaggio) {
-		personaggioRepository.save(personaggio);
+		repo.save(personaggio);
 	}
 
 	@Override
@@ -47,17 +47,17 @@ public class PersonaggioServiceImpl implements PersonaggioService {
 		update.setClasse(personaggio.getClasse());
 		update.setLivello(personaggio.getLivello());
 		update.setDescrizione(personaggio.getDescrizione());
-		personaggioRepository.save(update);
+		repo.save(update);
 	}
 
 	@Override
 	public void deletePersonaggio(Long id) {
-		personaggioRepository.deleteById(id);
+		repo.deleteById(id);
 	}
 
 	@Override
 	public List<Personaggio> searchCharacter(String keyword) {
-		List<Personaggio> find = personaggioRepository.findPersonaggio(keyword);
+		List<Personaggio> find = repo.findPersonaggio(keyword);
 		return find;
 	}
 

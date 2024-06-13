@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.fantasy.model.Personaggio;
 
-@Service
 public interface PersonaggioService {
 	
 	public List<Personaggio> getAllPersonaggio();

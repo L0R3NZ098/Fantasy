@@ -5,7 +5,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,18 +12,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-//Create an entity named User, with this attribute: Id is the primary key and auto-increment; nome 
+
+//Creo una classe User mappata come entità del database user
 @Entity
 @Table(name = "user")
 public class User {
 	
+	//Creo la chiave primaria con valore auto-incrementale
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+    
+	//Creo il campo nome che non deve contenere valori null
 	@Nonnull
 	private String nome;
 	
+	//Creo la relazione one to many tra la chiave primaria e la chiave esterna della classe Personaggio
 	@OneToMany(mappedBy = "user")
 	@JsonManagedReference
 	private List<Personaggio> personaggi;
@@ -35,9 +38,9 @@ public class User {
 		this.nome = nome;
 		this.personaggi = personaggi;
 	}
-	
+
 	public User() {
-		super();
+		super(); 
 	}
 
 	public Long getId() {
@@ -63,5 +66,5 @@ public class User {
 	public void setPersonaggi(List<Personaggio> personaggi) {
 		this.personaggi = personaggi;
 	}
- 	
+
 }
