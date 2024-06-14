@@ -21,13 +21,13 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
-	@GetMapping("/getAll")
+	@GetMapping("/getall")
 	public ResponseEntity<List<User>> getAll() {
 		List<User> getAll = service.getAllUser();
 		return ResponseEntity.ok().body(getAll);
 	}
 	
-	@GetMapping("/getById/{id}")
+	@GetMapping("/getbyid/{id}")
 	public ResponseEntity<User> getById(@PathVariable(value = "id") Long id) {
 		User getById = service.getUserById(id);
 		return ResponseEntity.ok().body(getById);

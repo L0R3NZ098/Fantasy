@@ -1,7 +1,6 @@
 package com.example.fantasy.service;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
 import com.example.fantasy.model.Personaggio;
 
 public interface PersonaggioService {
